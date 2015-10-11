@@ -12,15 +12,17 @@ public class CP3LinkedList<E> {
         private class Node {
 		public E data;
 		public Node next;
+                public Node prev;
 	}
 	private Node first;
-		
+	private Node last;	
 	/** 
     	Constructs an empty linked list.
 	*/
 	public CP3LinkedList()
 	{  
 		first = null;
+                last = null;
 	}
  
 	/**
@@ -31,8 +33,17 @@ public class CP3LinkedList<E> {
 	{  
 		Node newLink = new Node();
 		newLink.data = element;
-		newLink.next = first;
-		first = newLink;
+                if (first == null)
+                {
+                    first = newLink;
+                    last = newLink;
+                }
+                else
+                {
+                    first.prev = newLink;
+                    newLink.next = first;
+                    first = newLink;
+                }
 	}
 
 	public E getFirst() {
@@ -40,6 +51,11 @@ public class CP3LinkedList<E> {
 			throw new NoSuchElementException();
 		return first.data;
 	}
+        public E getLast() {
+                if (last == null)
+                        throw new NoSuchElementException();
+                return last.data;
+        }
 
 	public E removeFirst() {
 		if (first == null)
@@ -59,13 +75,14 @@ public class CP3LinkedList<E> {
 	         current = current.next;
 	      }
 	}
-        // fix this
         public int size(){
             Node node = first;
             int size=0;
-            while (first != null){
+            if (node != null)
                 size++;
-                node = first.next;
+            while (node.next != null){
+                size++;
+                node = node.next;
             }
             return size;
         }

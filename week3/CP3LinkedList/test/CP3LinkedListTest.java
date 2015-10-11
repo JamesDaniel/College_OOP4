@@ -129,5 +129,21 @@ public class CP3LinkedListTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+    /**
+     * Test of getLast method, of class CP£LinkedList.
+     */
+    @Test
+    public void getLast() {
+        System.out.println("getLast");
+        CP3LinkedList<String> instance = new CP3LinkedList();
+        instance.addFirst("billy");
+        instance.addFirst("bob");
+        instance.addFirst("thornton");
+        String expResult = "billy";
+        String result = instance.getLast();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }
