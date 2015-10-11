@@ -44,7 +44,7 @@ public class Lab4Test {
     @Test
     public void testIsBalanced() {
         System.out.println("isBalanced");
-        String expression = "(<2+3>*(4-5))";
+        String expression = "( a + b * ( c / ( d – e ) ) ) + < d / e >";
         boolean expResult = true;
         boolean result = Lab4.isBalanced(expression);
         assertEquals(expResult, result);
