@@ -56,13 +56,39 @@ public class BinarySearchDemoTest {
     @Test
     public void testBinarySearch() {
         System.out.println("binarySearch");
-        int[] array = null;
+        int[] array = {1,2,3,4,5};
+        
+        
         int key = 0;
-        int expResult = 0;
-    //    int result = BinarySearchDemo.binarySearch(array, key);
-        //assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        int expResult = -1;
+        int result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
+        key = 1;
+        expResult = 0;
+        result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
+        key = 5;
+        expResult = 4;
+        result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
+        key = 6;
+        expResult = -1;
+        result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
+        key = 3;
+        expResult = 2;
+        result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
+        key = 12;
+        expResult = -1;
+        result = BinarySearchDemo.binarySearch(array, key);
+        assertEquals(expResult, result);
+        
     }
 
     /**

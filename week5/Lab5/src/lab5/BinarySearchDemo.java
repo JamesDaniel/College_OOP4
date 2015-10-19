@@ -13,12 +13,13 @@ public class BinarySearchDemo
            
                 
     }	
-
-   // Binary search
-   public static int binarySearch( int array[], int key ) 
+   public static int binarySearch( int array[], int key) 
    {
-      int low = 0;                  // low subscript
-      int high = array.length - 1;  // high subscript
+       return binarySearch(array, key, 0, array.length-1);
+   }
+   // Binary search
+   public static int binarySearch( int array[], int key ,int low, int high) 
+   {
       int middle;                   // middle subscript
 
       while ( low <= high ) {
@@ -27,9 +28,9 @@ public class BinarySearchDemo
          if ( key == array[ middle ] )  // match
             return middle;
          else if ( key < array[ middle ] )
-            high = middle - 1;  // search low end of array
+            return binarySearch(array, key, low, middle-1);
          else
-            low = middle + 1;   // search high end of array
+            return binarySearch(array, key, middle+1, high);
       }
 
       return -1;   // searchKey not found
