@@ -21,16 +21,9 @@ public class MatrixGraph extends AbstractGraph {
     //0.0 indicates no edge
     
     private double[][] matrix;
-     int[] visitOrder; // visitOrder[i] = the i-th vertex to be visited in order.
-     int visitCount;  // We will track visits with this counter.
-     int numVertices;
-     
-     private boolean[] marked;    // marked[v] = is there an s-v path?
-    private int count;           // number of vertices connected to s
     
     public MatrixGraph(int nV, boolean direct){
         super(nV, direct);
-        numVertices = nV;
         matrix = new double[nV][nV];
         for (int row = 0; row < nV; row++)
             for (int col = 0; col < nV; col++)
@@ -85,54 +78,11 @@ public class MatrixGraph extends AbstractGraph {
     }
     
     public void breadthFirstTraversal(int start){
-        //http://www.seas.gwu.edu/~simhaweb/alg/lectures/module7/examples/UndirectedBreadthFirstMatrix.java
         //mark all vertices as not_visited
-        int visited[] = new int[numVertices];
-        
-        
-        // create an empty queue 
-        Queue<Integer> que = new LinkedList<Integer>();
-        que.add(start);  //add to queue    
-            
-        //while not queue.empty do  
-        while (!que.isEmpty())
-        {
-            // vertex := queue.dequeue()  // remove from queue
-            int vertex = que.poll();
-            
-            if (visited[vertex] == 0)
-                continue;
-            
-            visitCount++;
-            visitOrder[vertex] = visitCount;
-            
-            for (int i = 0; i<numVertices; i++)
-            {
-                if (matrix[vertex][i] > 0 && (i != vertex))
-                {
-                    if (visitOrder[i] == -1)
-                        que.add(i);
-                }
-            }
-        }
+	
     }
-    //http://algs4.cs.princeton.edu/41graph/DepthFirstSearch.java.html
+    
     public void depthFirstTraversal(int start){
         //Output the vertices in depth first order
-        boolean marked[] = new boolean[numVertices];
-        count = 0;
-        dfs(start);
-        
     }    
-    private void dfs(int v)
-    {
-        count++;
-        marked[v] = true;
-        /*
-        for (int w: this.adj(v)){
-            if (!marked[w]){
-                dfs(w);
-            }
-        }*/
-    }
 }

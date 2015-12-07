@@ -1,7 +1,7 @@
 package lab7;
 
 /*****************************************************
-*    Title: Graph.java
+*    Title: Edge.java
 *    Author: Koffman and Wolfgang
 *    Site owner/sponsor: wiley.com
 *    Date: 21/04/2010
@@ -10,18 +10,21 @@ package lab7;
 *    Modified:  No
 *****************************************************/
 
-public interface Graph {
-    //returns the number of vertices
-    int getNumVertices(); 
+
+public class Edge {
+    private int source;
+    private int destination;
     
-    // determine if this is a directed graph
-    boolean isDirected(); 
+    public Edge(int s, int d){
+        source = s;
+        destination = d;        
+    }
     
-   // determine if an edge exists between source and destination
-    boolean isEdge(int source, int dest);
+    public int getSource(){
+        return source;
+    }
     
-    void insert(Edge edge);
-    
-    void remove(Edge edge);
-    
+    public int getDestination(){
+        return destination;
+    }
 }
