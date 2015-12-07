@@ -120,5 +120,21 @@ public class BinarySearchDemoTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    
+
+    
+
+    /**
+     * Test of fib method, of class BinarySearchDemo.
+     */
+    @Test
+    public void testFib() {
+        System.out.println("fib");
+        int n = 15;
+        int expResult = 610;
+        int result = BinarySearchDemo.fib(n);
+        assertEquals(expResult, result);
+    }
     
 }
